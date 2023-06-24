@@ -122,7 +122,7 @@ contains
             use kinds
             character,                       intent(in)    :: f_jobz
             integer,                         intent(in)    :: f_m, f_n, f_lda, f_ldu, f_ldvt, f_lwork
-            real(rk),  dimension(f_lda, *),  intent(inout) :: f_a
+            real(rk),  dimension(f_lda, *),  intent(in)    :: f_a
             real(rk),  dimension(*),         intent(out)   :: f_s
             real(rk),  dimension(f_ldu, *),  intent(out)   :: f_u
             real(rk),  dimension(f_ldvt, *), intent(out)   :: f_vt
