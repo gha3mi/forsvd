@@ -22,7 +22,11 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the singular value decomposition (SVD) of a matrix A.
+#if defined (PURE)
    pure subroutine svd_rel(A, U,S,VT, method)
+#elif defined (IMPURE)
+   impure subroutine svd_rel(A, U,S,VT, method)
+#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A
@@ -54,7 +58,11 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the singular value decomposition (SVD) of a matrix A.
+#if defined (PURE)
    pure subroutine gesvd_rel(A, U,S,VT)
+#elif defined (IMPURE)
+   impure subroutine gesvd_rel(A, U,S,VT)
+#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A
@@ -101,7 +109,12 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the singular value decomposition (SVD) of a matrix A.
+#if defined (PURE)
    pure subroutine gesdd_rel(A, U, S, VT)
+#elif defined (IMPURE)
+   impure subroutine gesdd_rel(A, U, S, VT)
+#endif
+
       ! Inputs:
       real(rk), dimension(:, :), contiguous, intent(in)  :: A    ! Input matrix A
 

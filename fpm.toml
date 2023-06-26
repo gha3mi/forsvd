@@ -16,6 +16,10 @@ implicit-typing = false
 implicit-external = false
 source-form = "free"
 
+[preprocess]
+[preprocess.cpp]
+macros = ["PURE"]
+
 [dependencies]
 kinds       = {git="https://github.com/gha3mi/kinds.git"}
 
