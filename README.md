@@ -1,11 +1,13 @@
-# ForSVD
-This Fortran module provides functions and subroutines for calculating the singular value decomposition (SVD) of a matrix. It includes different methods for computing the SVD, allowing flexibility based on the requirements of the application.
+![ForSVD](media/logo.png)
+============
+
+**ForSVD**: This Fortran module provides functions and subroutines for calculating the singular value decomposition (SVD) of a matrix. It includes different methods for computing the SVD, allowing flexibility based on the requirements of the application.
 
 -----
 
 ## Table of Contents
 
-- [ForSVD](#forsvd)
+- [](#)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
     - [fpm](#fpm)
