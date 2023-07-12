@@ -61,12 +61,12 @@ contains
 #endif
 
       ! Inputs:
-      real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A
+      real(rk), dimension(:, :), contiguous, intent(in)  :: A    ! Input matrix A
 
       ! Outputs:
-      real(rk), dimension(size(A,1), size(A,1)),      intent(out) :: U    ! Left singular vectors
-      real(rk), dimension(size(A,2), size(A,2)),      intent(out) :: VT   ! Right singular vectors
-      real(rk), dimension(min(size(A,1), size(A,2))), intent(out) :: S    ! Singular values
+      real(rk), dimension(:,:), intent(out) :: U    ! Left singular vectors
+      real(rk), dimension(:,:), intent(out) :: VT   ! Right singular vectors
+      real(rk), dimension(:),   intent(out) :: S    ! Singular values
 
       character(*), intent(in), optional :: method
 
@@ -100,9 +100,9 @@ contains
       real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A
 
       ! Outputs:
-      real(rk), dimension(size(A,1), size(A,1)),      intent(out) :: U    ! Left singular vectors
-      real(rk), dimension(size(A,2), size(A,2)),      intent(out) :: VT   ! Right singular vectors
-      real(rk), dimension(min(size(A,1), size(A,2))), intent(out) :: S    ! Singular values
+      real(rk), dimension(:,:), intent(out) :: U    ! Left singular vectors
+      real(rk), dimension(:,:), intent(out) :: VT   ! Right singular vectors
+      real(rk), dimension(:),   intent(out) :: S    ! Singular values
 
       ! Local variables
       real(rk)                                                    :: work1(1) ! memory allocation query
@@ -148,12 +148,12 @@ contains
 #endif
 
       ! Inputs:
-      real(rk), dimension(:, :), contiguous, intent(in)  :: A    ! Input matrix A
+      real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A
 
       ! Outputs:
-      real(rk), dimension(size(A,1), size(A,1)),      intent(out) :: U    ! Left singular vectors
-      real(rk), dimension(size(A,2), size(A,2)),      intent(out) :: VT   ! Right singular vectors
-      real(rk), dimension(min(size(A,1), size(A,2))), intent(out) :: S    ! Singular values
+      real(rk), dimension(:,:), intent(out) :: U    ! Left singular vectors
+      real(rk), dimension(:,:), intent(out) :: VT   ! Right singular vectors
+      real(rk), dimension(:),   intent(out) :: S    ! Singular values
 
       ! Local variables
       real(rk) :: work1(1) ! memory allocation query
