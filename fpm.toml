@@ -1,6 +1,6 @@
 name = "forsvd"
-version = "0.1.0"
-license = "license"
+version = "VERSION"
+license = "LICENSE"
 author = "Seyed Ali Ghasemi"
 maintainer = "info@gha3mi.com"
 copyright = "Copyright 2023, Seyed Ali Ghasemi"

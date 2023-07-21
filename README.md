@@ -3,53 +3,78 @@
 
 **ForSVD**: This Fortran module provides functions and subroutines for calculating the singular value decomposition (SVD) of a matrix. It includes different methods for computing the SVD, allowing flexibility based on the requirements of the application.
 
------
 
 ## Table of Contents
 
 - [](#)
   - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-    - [fpm](#fpm)
-  - [Usage](#usage)
-  - [Subroutine: `svd`](#subroutine-svd)
-    - [Inputs](#inputs)
-    - [Outputs](#outputs)
-    - [Optional Input](#optional-input)
-  - [Methods](#methods)
-  - [External Subroutine: `dgesvd`](#external-subroutine-dgesvd)
-  - [External Subroutine: `dgesdd`](#external-subroutine-dgesdd)
-  - [Tests](#tests)
+  - [How to Use ForSVD](#how-to-use-forsvd)
+    - [Adding ForSVD as an fpm Dependency](#adding-forsvd-as-an-fpm-dependency)
+    - [Installation of ForSVD Library](#installation-of-forsvd-library)
   - [Example](#example)
-  - [Documentation](#documentation)
+  - [API Documentation](#api-documentation)
   - [Contributing](#contributing)
------
 
-## Installation
 
-### fpm
-ForSVD can be cloned and then built using [fpm](https://github.com/fortran-lang/fpm), following the instructions provided in the documentation available on Fortran Package Manager.
 
-```bash
-git clone https://github.com/gha3mi/forsvd.git
-cd forsvd
-fpm install --prefix .
-```
+## How to Use ForSVD
 
-Or you can easily include this package as a dependency in your `fpm.toml` file.
+**Reuirements:** Fortran Compiler, LAPACK or MKL Libraries
+
+### Adding ForSVD as an fpm Dependency
+
+If you want to use ForSVD as a dependency in your own fpm project,
+you can easily include it by adding the following line to your `fpm.toml` file:
 
 ```toml
 [dependencies]
 forsvd = {git="https://github.com/gha3mi/forsvd.git"}
 ```
 
------
+### Installation of ForSVD Library
+
+To use ForSVD, follow the steps below:
+
+- **Clone the repository:**
+
+   You can clone the ForSVD repository from GitHub using the following command:
+
+   ```shell
+   git clone https://github.com/gha3mi/forsvd.git
+   ```
+
+   ```shell
+   cd forsvd
+   ```
+
+- **Build using the Fortran Package Manager (fpm):**
+
+   ForSVD can be built using [fpm](https://github.com/fortran-lang/fpm).
+   Make sure you have fpm installed, and then execute the following command:
+
+  **GNU Fortran Compiler (gfortran)**
+
+   ```shell
+   fpm install --prefix . --compiler gfortran --flag "-Wno-line-truncation -Ofast -march=native -llapack"
+   ```
+
+  **Intel Fortran Compiler (ifort)**
+
+   ```shell
+   fpm install --prefix . --compiler ifort --flag "-Ofast -xHost -mtune=native -qmkl=parallel"
+   ```
+
+  **Intel Fortran Compiler (ifx)**
+
+    ```shell
+   fpm install --prefix . --compiler ifx --flag "-Ofast -xHost -mtune=native -qmkl=parallel"
+   ```
+
 ## Usage
 1. Include the `ForSVD` module in your Fortran program.
 2. Declare the necessary variables and arrays.
 3. Call the `svd` subroutine with the appropriate input arguments to compute the SVD.
 4. The resulting left singular vectors, right singular vectors, and singular values will be stored in the corresponding output arrays.
------
 
 ## Subroutine: `svd`
 Calculates the singular value decomposition (SVD) of a matrix A using the specified method.
@@ -77,8 +102,6 @@ Computes the SVD of a matrix using the LAPACK routine `dgesvd`.
 ## External Subroutine: `dgesdd`
 Computes the SVD of a matrix using the LAPACK routine `dgesdd`.
 
------
-
 ## Tests
 
 The `tests` directory contains test programs to verify the functionality of the `fortime` module. To run the tests using `fpm`, you can use response files for specific compilers:
@@ -102,7 +125,6 @@ fpm @nvidia
 ```bash
 fpm @gfortran
 ```
------
 
 ## Example
 ```fortran
@@ -143,16 +165,16 @@ program test1
 
 end program test1
 ```
------
 
-## Documentation
-To generate the documentation for the `fortime` module using [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following command:
-```bash
-ford project.yml
+## API Documentation
+
+To generate the API documentation for the `ForSVD` module using
+[ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following
+command:
+
+```shell
+ford ford.yml
 ```
 
------
-
 ## Contributing
-
-Contributions to fortime are welcome! If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.
+Contributions to `ForSVD` are welcome! If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.
