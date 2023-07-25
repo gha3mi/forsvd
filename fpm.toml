@@ -42,3 +42,10 @@ main       = "test3.f90"
 name       = "test4"
 source-dir = "test"
 main       = "test4.f90"
+
+[[test]]
+name       = "benchmark"
+source-dir = "test"
+main       = "benchmark.f90"
+[test.dependencies]
+fortime    = {git="https://github.com/gha3mi/fortime.git"}
