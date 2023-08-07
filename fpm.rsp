@@ -1,0 +1,8 @@
+@gfortran-test
+options test --compiler gfortran --flag "-Wno-line-truncation -Ofast -march=native -llapack -lblas"
+@ifort-test
+options test --compiler ifort --flag "-Ofast -xHost -mtune=native -qopenmp -parallel -qmkl=parallel"
+@ifx-test
+options test --compiler ifx --flag "-Ofast -xHost -mtune=native -qopenmp -fopenmp-target-do-concurrent -parallel -qmkl=parallel"
+@nvfortran-test
+options test --compiler nvfortran --flag "-O4 -mtune=native -stdpar=gpu,multicore -llapack"
