@@ -64,7 +64,7 @@ fpm @nvfortran-test
 ```Fortran
 use forsvd, only : svd
 
-call svd(A, U,S,VT, method='gesvd') % method='gesdd' 
+call svd(A, U,S,VT, method='gesvd') ! method='gesdd' 
 ```
 
 ### Example 1
