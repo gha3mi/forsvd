@@ -62,7 +62,7 @@ fpm @nvfortran-test
 ## Usage (SVD)
 
 ```Fortran
-use forsvd, only : svd
+use forsvd, only: svd
 
 call svd(A, U,S,VT, method='gesvd') ! method='gesdd' 
 ```
@@ -72,8 +72,8 @@ call svd(A, U,S,VT, method='gesvd') ! method='gesdd'
 ```fortran
 program example1
 
-   use :: kinds
-   use :: forsvd, only : svd
+   use kinds
+   use forsvd, only: svd
 
    implicit none
 
@@ -111,7 +111,7 @@ end program example1
 ## Usage (low-rank approximation)
 
 ```Fortran
-use forsvd, only : tsvd
+use forsvd, only: tsvd
 
 call ts%lowrank(matrix=A, rank=n)
 ```
@@ -122,7 +122,7 @@ call ts%lowrank(matrix=A, rank=n)
 program example2
 
    use kinds
-   use forsvd, only : tsvd
+   use forsvd, only: tsvd
 
    implicit none
 
