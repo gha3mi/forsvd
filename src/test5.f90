@@ -1,6 +1,6 @@
 program test5
 
-   use forsvd, only : pixel
+   use forsvd, only: pixel
 
    implicit none
 

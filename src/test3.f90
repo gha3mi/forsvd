@@ -1,7 +1,7 @@
 program test3
 
-   use :: kinds
-   use :: forsvd, only : svd
+   use kinds
+   use forsvd, only: svd
 
    implicit none
 

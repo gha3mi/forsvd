@@ -10,81 +10,55 @@
 
     <title>lowrank &ndash; forsvd</title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-         <script src="../js/jquery-2.1.3.min.js"></script>
-         <script src="../js/svg-pan-zoom.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html">forsvd <small>0.2.0</small></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-                 data-toggle="dropdown" role="button"
-                 aria-haspopup="true"
-                 aria-expanded="false">
-                 Contents <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                    <li><a href="../lists/files.html">Source Files</a></li>
-                  <li><a href="../lists/modules.html">Modules</a></li>
-                  <li><a href="../lists/procedures.html">Procedures</a></li>
-                  <li><a href="../lists/types.html">Derived Types</a></li>
-                  <li><a href="../lists/programs.html">Programs</a></li>
-              </ul>
-            </li>
-                <li class="visible-xs hidden-sm visible-lg">
-                  <a href="../lists/files.html">Source Files</a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
                 </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/modules.html">Modules</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/procedures.html">Procedures</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/types.html">Derived Types</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/programs.html">Programs</a>
-              </li>
-          </ul>
-            <form action="../search.html" class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
               </div>
-              <!--
-                  <button type="submit" class="btn btn-default">Submit</button>
-                  -->
-            </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
 
     <div class="container">
   <div class="row">
@@ -92,34 +66,38 @@
       <small>Subroutine</small>
       
     </h1>
-      <div class="row" id="info-bar">
-    <div class="col-lg-12">
-      <div class="well well-sm">
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
 
-          <li id="statements"><i class="fa fa-list-ol"></i>
-            <a data-toggle="tooltip"
-               data-placement="bottom" data-html="true"
-               title="14.9% of total for procedures.">24 statements</a>
-          </li>
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title="15.2% of total for procedures.">24 statements</a>
+            </li>
 
-            <li id="source-file">
+            <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
               <a href="../src/forsvd.f90"> Source File</a>
             </li>
         </ul>
-        <ol class="breadcrumb in-well text-right">
-              <li><a href='../sourcefile/forsvd.f90.html'>forsvd.f90</a></li>
-              <li><a href='../module/forsvd.html'>forsvd</a></li>
-          <li class="active">lowrank</li>
-        </ol>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/forsvd.f90.html'>forsvd.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/forsvd.html'>forsvd</a></li>
+            <li class="breadcrumb-item active" aria-current="page">lowrank</li>
+          </ol>
+        </nav>
       </div>
     </div>
   </div>
   <script>
     $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-bs-toggle="tooltip"]').tooltip()
     })
   </script>
 
@@ -148,8 +126,9 @@
   
   
   
-    <div class="panel panel-primary">
-      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
       <div class="list-group">
         <a class="list-group-item" href="../proc/lowrank.html#src">lowrank</a>
       </div>
@@ -161,7 +140,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>private  subroutine lowrank(this, matrix, rank, method)  
+    <h2>private pure subroutine lowrank(this, matrix, rank, method)  
 </h2>
     
 
@@ -173,11 +152,11 @@
         <table class="table table-striped varlist">
     <thead>
       <tr>
-        <th>Type</th>
-<th>Intent</th><th>Optional</th>        <th>Attributes</th>
-        <th></th>
-        <th>Name</th>
-        <th></th>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
     </thead>
     <tbody>
         <tr>
@@ -244,22 +223,22 @@
   </table>
 
     <br>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Calls</h3>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~lowrank~~CallsGraph Pages: 1 -->
-<svg id="proclowrankCallsGraph" width="510pt" height="95pt"
- viewBox="0.00 0.00 510.00 95.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~lowrank~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 91)">
+<svg id="proclowrankCallsGraph" width="508pt" height="74pt"
+ viewBox="0.00 0.00 508.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~lowrank~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
 <title>proc~~lowrank~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-91 506,-91 506,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 504,-70 504,4 -4,4"/>
 <!-- proc~lowrank -->
 <g id="proc~~lowrank~~CallsGraph_node1" class="node">
 <title>proc~lowrank</title>
@@ -270,78 +249,66 @@
 <g id="proc~~lowrank~~CallsGraph_node2" class="node">
 <title>interface~svd</title>
 <g id="a_proc~~lowrank~~CallsGraph_node2"><a xlink:href=".././interface/svd.html" xlink:title="forsvd::svd">
-<polygon fill="#a7506f" stroke="#a7506f" points="235,-66 164,-66 164,-42 235,-42 235,-66"/>
-<text text-anchor="middle" x="199.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::svd</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="234,-45 163,-45 163,-21 234,-21 234,-45"/>
+<text text-anchor="middle" x="198.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::svd</text>
 </a>
 </g>
 </g>
 <!-- proc~lowrank&#45;&gt;interface~svd -->
 <g id="proc~~lowrank~~CallsGraph_edge1" class="edge">
 <title>proc~lowrank&#45;&gt;interface~svd</title>
-<path fill="none" stroke="#255000" d="M127.18,-42.82C136.19,-44.24 145.3,-45.66 153.86,-47"/>
-<polygon fill="#255000" stroke="#255000" points="153.57,-50.5 163.99,-48.59 154.65,-43.59 153.57,-50.5"/>
-</g>
-<!-- matrix_app -->
-<g id="proc~~lowrank~~CallsGraph_node3" class="node">
-<title>matrix_app</title>
-<polygon fill="#777777" stroke="#777777" points="236,-24 163,-24 163,0 236,0 236,-24"/>
-<text text-anchor="middle" x="199.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">matrix_app</text>
-</g>
-<!-- proc~lowrank&#45;&gt;matrix_app -->
-<g id="proc~~lowrank~~CallsGraph_edge2" class="edge">
-<title>proc~lowrank&#45;&gt;matrix_app</title>
-<path fill="none" stroke="#255000" d="M127.18,-23.18C135.81,-21.83 144.52,-20.46 152.76,-19.17"/>
-<polygon fill="#255000" stroke="#255000" points="153.56,-22.59 162.9,-17.58 152.47,-15.67 153.56,-22.59"/>
+<path fill="none" stroke="#255000" d="M127.11,-33C135.73,-33 144.44,-33 152.65,-33"/>
+<polygon fill="#255000" stroke="#255000" points="152.75,-36.5 162.75,-33 152.75,-29.5 152.75,-36.5"/>
 </g>
 <!-- proc~svd_rel -->
-<g id="proc~~lowrank~~CallsGraph_node4" class="node">
+<g id="proc~~lowrank~~CallsGraph_node3" class="node">
 <title>proc~svd_rel</title>
-<g id="a_proc~~lowrank~~CallsGraph_node4"><a xlink:href=".././proc/svd_rel.html" xlink:title="forsvd::svd_rel">
-<polygon fill="#d9534f" stroke="#d9534f" points="362,-66 272,-66 272,-42 362,-42 362,-66"/>
-<text text-anchor="middle" x="317" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::svd_rel</text>
+<g id="a_proc~~lowrank~~CallsGraph_node3"><a xlink:href=".././proc/svd_rel.html" xlink:title="forsvd::svd_rel">
+<polygon fill="#d9534f" stroke="#d9534f" points="360,-45 270,-45 270,-21 360,-21 360,-45"/>
+<text text-anchor="middle" x="315" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::svd_rel</text>
 </a>
 </g>
 </g>
 <!-- interface~svd&#45;&gt;proc~svd_rel -->
-<g id="proc~~lowrank~~CallsGraph_edge3" class="edge">
+<g id="proc~~lowrank~~CallsGraph_edge2" class="edge">
 <title>interface~svd&#45;&gt;proc~svd_rel</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M235.15,-54C243.55,-54 252.74,-54 261.8,-54"/>
-<polygon fill="#255000" stroke="#255000" points="261.94,-57.5 271.94,-54 261.94,-50.5 261.94,-57.5"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M234.16,-33C242.21,-33 250.96,-33 259.62,-33"/>
+<polygon fill="#255000" stroke="#255000" points="259.7,-36.5 269.7,-33 259.7,-29.5 259.7,-36.5"/>
 </g>
 <!-- proc~gesdd_rel -->
-<g id="proc~~lowrank~~CallsGraph_node5" class="node">
+<g id="proc~~lowrank~~CallsGraph_node4" class="node">
 <title>proc~gesdd_rel</title>
-<g id="a_proc~~lowrank~~CallsGraph_node5"><a xlink:href=".././proc/gesdd_rel.html" xlink:title="forsvd::gesdd_rel">
-<polygon fill="#d9534f" stroke="#d9534f" points="502,-87 398,-87 398,-63 502,-63 502,-87"/>
-<text text-anchor="middle" x="450" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::gesdd_rel</text>
+<g id="a_proc~~lowrank~~CallsGraph_node4"><a xlink:href=".././proc/gesdd_rel.html" xlink:title="forsvd::gesdd_rel">
+<polygon fill="#d9534f" stroke="#d9534f" points="500,-66 396,-66 396,-42 500,-42 500,-66"/>
+<text text-anchor="middle" x="448" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::gesdd_rel</text>
 </a>
 </g>
 </g>
 <!-- proc~svd_rel&#45;&gt;proc~gesdd_rel -->
-<g id="proc~~lowrank~~CallsGraph_edge4" class="edge">
+<g id="proc~~lowrank~~CallsGraph_edge3" class="edge">
 <title>proc~svd_rel&#45;&gt;proc~gesdd_rel</title>
-<path fill="none" stroke="#255000" d="M362.35,-61.11C370.57,-62.43 379.28,-63.82 387.89,-65.2"/>
-<polygon fill="#255000" stroke="#255000" points="387.49,-68.68 397.92,-66.81 388.6,-61.77 387.49,-68.68"/>
+<path fill="none" stroke="#255000" d="M360.35,-40.11C368.57,-41.43 377.28,-42.82 385.89,-44.2"/>
+<polygon fill="#255000" stroke="#255000" points="385.49,-47.68 395.92,-45.81 386.6,-40.77 385.49,-47.68"/>
 </g>
 <!-- proc~gesvd_rel -->
-<g id="proc~~lowrank~~CallsGraph_node6" class="node">
+<g id="proc~~lowrank~~CallsGraph_node5" class="node">
 <title>proc~gesvd_rel</title>
-<g id="a_proc~~lowrank~~CallsGraph_node6"><a xlink:href=".././proc/gesvd_rel.html" xlink:title="forsvd::gesvd_rel">
-<polygon fill="#d9534f" stroke="#d9534f" points="501.5,-45 398.5,-45 398.5,-21 501.5,-21 501.5,-45"/>
-<text text-anchor="middle" x="450" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::gesvd_rel</text>
+<g id="a_proc~~lowrank~~CallsGraph_node5"><a xlink:href=".././proc/gesvd_rel.html" xlink:title="forsvd::gesvd_rel">
+<polygon fill="#d9534f" stroke="#d9534f" points="499.5,-24 396.5,-24 396.5,0 499.5,0 499.5,-24"/>
+<text text-anchor="middle" x="448" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::gesvd_rel</text>
 </a>
 </g>
 </g>
 <!-- proc~svd_rel&#45;&gt;proc~gesvd_rel -->
-<g id="proc~~lowrank~~CallsGraph_edge5" class="edge">
+<g id="proc~~lowrank~~CallsGraph_edge4" class="edge">
 <title>proc~svd_rel&#45;&gt;proc~gesvd_rel</title>
-<path fill="none" stroke="#255000" d="M362.35,-46.89C370.67,-45.56 379.51,-44.14 388.23,-42.74"/>
-<polygon fill="#255000" stroke="#255000" points="389.06,-46.15 398.38,-41.12 387.95,-39.24 389.06,-46.15"/>
+<path fill="none" stroke="#255000" d="M360.35,-25.89C368.67,-24.56 377.51,-23.14 386.23,-21.74"/>
+<polygon fill="#255000" stroke="#255000" points="387.06,-25.15 396.38,-20.12 385.95,-18.24 387.06,-25.15"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallsGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -358,11 +325,11 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="597pt" height="32pt"
- viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
@@ -381,23 +348,29 @@
 <polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
 <text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
-<!-- Unknown Procedure Type -->
+<!-- Type Bound Procedure -->
 <g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
-<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node">
+<g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
-<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
-<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -415,47 +388,77 @@ large graphs.</div>
         </div>
       </div>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Called by</h3>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~lowrank~~CalledByGraph Pages: 1 -->
-<svg id="proclowrankCalledByGraph" width="346pt" height="32pt"
- viewBox="0.00 0.00 346.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~lowrank~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg id="proclowrankCalledByGraph" width="436pt" height="74pt"
+ viewBox="0.00 0.00 436.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~lowrank~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
 <title>proc~~lowrank~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 342,-28 342,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 432,-70 432,4 -4,4"/>
 <!-- proc~lowrank -->
 <g id="proc~~lowrank~~CalledByGraph_node1" class="node">
 <title>proc~lowrank</title>
-<polygon fill="none" stroke="black" points="338,-24 211,-24 211,0 338,0 338,-24"/>
-<text text-anchor="middle" x="274.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">forsvd::tsvd%lowrank</text>
+<polygon fill="none" stroke="black" points="428,-45 301,-45 301,-21 428,-21 428,-45"/>
+<text text-anchor="middle" x="364.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">forsvd::tsvd%lowrank</text>
 </g>
 <!-- proc~compress_pixels -->
 <g id="proc~~lowrank~~CalledByGraph_node2" class="node">
 <title>proc~compress_pixels</title>
 <g id="a_proc~~lowrank~~CalledByGraph_node2"><a xlink:href=".././proc/compress_pixels.html" xlink:title="forsvd::pixel%compress_pixels">
-<polygon fill="#d9534f" stroke="#d9534f" points="175,-24 0,-24 0,0 175,0 175,-24"/>
-<text text-anchor="middle" x="87.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::pixel%compress_pixels</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="265,-66 90,-66 90,-42 265,-42 265,-66"/>
+<text text-anchor="middle" x="177.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsvd::pixel%compress_pixels</text>
 </a>
 </g>
 </g>
 <!-- proc~compress_pixels&#45;&gt;proc~lowrank -->
 <g id="proc~~lowrank~~CalledByGraph_edge1" class="edge">
 <title>proc~compress_pixels&#45;&gt;proc~lowrank</title>
-<path fill="none" stroke="#255000" d="M175.04,-12C183.6,-12 192.23,-12 200.62,-12"/>
-<polygon fill="#255000" stroke="#255000" points="200.74,-15.5 210.74,-12 200.74,-8.5 200.74,-15.5"/>
+<path fill="none" stroke="#255000" d="M265.04,-44.18C273.6,-43.2 282.23,-42.23 290.62,-41.27"/>
+<polygon fill="#255000" stroke="#255000" points="291.2,-44.73 300.74,-40.12 290.41,-37.77 291.2,-44.73"/>
+</g>
+<!-- program~test4 -->
+<g id="proc~~lowrank~~CalledByGraph_node3" class="node">
+<title>program~test4</title>
+<g id="a_proc~~lowrank~~CalledByGraph_node3"><a xlink:href=".././program/test4.html" xlink:title="test4">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="204.5,-24 150.5,-24 150.5,0 204.5,0 204.5,-24"/>
+<text text-anchor="middle" x="177.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test4</text>
+</a>
+</g>
+</g>
+<!-- program~test4&#45;&gt;proc~lowrank -->
+<g id="proc~~lowrank~~CalledByGraph_edge2" class="edge">
+<title>program~test4&#45;&gt;proc~lowrank</title>
+<path fill="none" stroke="#255000" d="M204.61,-14.96C226.98,-17.5 260.31,-21.29 290.66,-24.73"/>
+<polygon fill="#255000" stroke="#255000" points="290.49,-28.24 300.83,-25.89 291.28,-21.28 290.49,-28.24"/>
+</g>
+<!-- program~test5 -->
+<g id="proc~~lowrank~~CalledByGraph_node4" class="node">
+<title>program~test5</title>
+<g id="a_proc~~lowrank~~CalledByGraph_node4"><a xlink:href=".././program/test5.html" xlink:title="test5">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test5</text>
+</a>
+</g>
+</g>
+<!-- program~test5&#45;&gt;proc~compress_pixels -->
+<g id="proc~~lowrank~~CalledByGraph_edge3" class="edge">
+<title>program~test5&#45;&gt;proc~compress_pixels</title>
+<path fill="none" stroke="#255000" d="M54.21,-54C61.73,-54 70.4,-54 79.59,-54"/>
+<polygon fill="#255000" stroke="#255000" points="79.73,-57.5 89.73,-54 79.72,-50.5 79.73,-57.5"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CalledByGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -472,11 +475,11 @@ large graphs.</div>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="597pt" height="32pt"
- viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
@@ -495,23 +498,29 @@ large graphs.</div>
 <polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
 <text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
-<!-- Unknown Procedure Type -->
+<!-- Type Bound Procedure -->
 <g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
-<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node">
+<g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
-<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
-<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -531,78 +540,47 @@ large graphs.</div>
     </div>
     <br>
 
-    <section class="visible-xs visible-sm hidden-md">
-        <h3>Contents</h3>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <div class="panel panel-primary">
-      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-      <div class="list-group">
-        <a class="list-group-item" href="../proc/lowrank.html#src">lowrank</a>
-      </div>
-    </div>
-
-
-    </section>
-    <br class="visible-xs visible-sm hidden-md">
-
 
     
     
 
     
     
+
 
 
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span><span class="w">   </span><span class="k">subroutine </span><span class="n">lowrank</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">tsvd</span><span class="p">),</span><span class="w">  </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">      </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">rank</span><span class="w"></span>
-<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w">     </span><span class="kd">::</span><span class="w"> </span><span class="n">method</span><span class="w"></span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">VT</span><span class="w"></span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w">    </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">S</span><span class="w"></span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">                                </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">irank</span><span class="w"></span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">pure subroutine </span><span class="n">lowrank</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">)</span>
+<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">tsvd</span><span class="p">),</span><span class="w">  </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">      </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">rank</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w">     </span><span class="kd">::</span><span class="w"> </span><span class="n">method</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">VT</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w">    </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">S</span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">                                </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">irank</span>
 
-<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
-<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">rank</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="w"></span>
+<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matrix</span>
+<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">rank</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span>
 
-<span class="w">      </span><span class="k">allocate</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">),</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">)),</span><span class="w"> </span><span class="n">VT</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">allocate</span><span class="p">(</span><span class="n">U</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">),</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">)),</span><span class="w"> </span><span class="n">VT</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">))</span>
 
-<span class="w">      </span><span class="k">call </span><span class="n">svd</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">VT</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">svd</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">VT</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">)</span>
 
-<span class="w">      </span><span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">))</span><span class="w"></span>
-<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_rk</span><span class="w"></span>
-<span class="w">      </span><span class="k">do </span><span class="n">irank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span><span class="w"></span>
-<span class="w">         </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="w"></span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="w"></span>
-<span class="w">               </span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">irank</span><span class="p">)</span><span class="o">*</span><span class="n">S</span><span class="p">(</span><span class="n">irank</span><span class="p">)</span><span class="o">*</span><span class="n">VT</span><span class="p">(</span><span class="n">irank</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">allocate</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span><span class="p">))</span>
+<span class="w">      </span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_rk</span>
+<span class="w">      </span><span class="k">do </span><span class="n">irank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">rank</span>
+<span class="w">         </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">ncol</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">this</span><span class="p">%</span><span class="n">nrow</span>
+<span class="w">               </span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">matrix_app</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">irank</span><span class="p">)</span><span class="o">*</span><span class="n">S</span><span class="p">(</span><span class="n">irank</span><span class="p">)</span><span class="o">*</span><span class="n">VT</span><span class="p">(</span><span class="n">irank</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
 <span class="w">            </span><span class="k">end do</span>
 <span class="k">         end do</span>
 <span class="k">      end do</span>
 
-<span class="k">   end subroutine </span><span class="n">lowrank</span><span class="w"></span>
+<span class="k">   end subroutine </span><span class="n">lowrank</span>
 </pre></div>
 
     </section>
@@ -615,32 +593,27 @@ large graphs.</div>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-xs-6 col-md-6"><p>forsvd was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+        <div class="row justify-content-between">
+          <div class="col"><p>forsvd was developed by Seyed Ali Ghasemi<br>&copy; 2023 
 </p>
           </div>
-          <div class="col-xs-6 col-md-6">
-            <p class="text-right">
+          <div class="col">
+            <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-07T08:58:44.806007             </p>
+ on 2023-12-10T11:16:12.170744             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-         ================================================== -->
-         <!-- Placed at the end of the document so the pages load faster -->
-    <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        -->
-        <script src="../js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
-        <!-- MathJax JavaScript
+    <!-- MathJax JavaScript
              ================================================== -->
              <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/x-mathjax-config">

@@ -3,7 +3,7 @@ module forsvd
    ! This module provides functions and subroutines
    ! for calculating the singular value decomposition (SVD).
 
-   use :: kinds
+   use kinds
 
    implicit none
 
@@ -54,11 +54,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the singular value decomposition (SVD) of a matrix A.
-#if defined (PURE)
    pure subroutine svd_rel(A, U,S,VT, method)
-#elif defined (IMPURE)
-   impure subroutine svd_rel(A, U,S,VT, method)
-#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous, intent(in)  :: A    ! Input matrix A
@@ -90,11 +86,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the singular value decomposition (SVD) of a matrix A.
-#if defined (PURE)
    pure subroutine gesvd_rel(A, U,S,VT)
-#elif defined (IMPURE)
-   impure subroutine gesvd_rel(A, U,S,VT)
-#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A
@@ -141,11 +133,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> Calculates the singular value decomposition (SVD) of a matrix A.
-#if defined (PURE)
    pure subroutine gesdd_rel(A, U, S, VT)
-#elif defined (IMPURE)
-   impure subroutine gesdd_rel(A, U, S, VT)
-#endif
 
       ! Inputs:
       real(rk), dimension(:, :), contiguous,          intent(in)  :: A    ! Input matrix A
@@ -196,7 +184,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   subroutine lowrank(this, matrix, rank, method)
+   pure subroutine lowrank(this, matrix, rank, method)
       class(tsvd),  intent(inout)            :: this
       real(rk), dimension(:, :), intent(in)  :: matrix
       integer,      intent(in)               :: rank
@@ -231,7 +219,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    ! TODO:
-   subroutine image_to_pixels(this, image_name, file_name)
+   impure subroutine image_to_pixels(this, image_name, file_name)
       class(pixel), intent(inout) :: this
       character(*), intent(in)    :: image_name
       character(*), intent(in)    :: file_name
@@ -246,7 +234,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    ! TODO:
-   subroutine pixels_to_image(this, file_name, image_name)
+   impure subroutine pixels_to_image(this, file_name, image_name)
       class(pixel), intent(inout) :: this
       character(*), intent(in)    :: file_name
       character(*), intent(in)    :: image_name
@@ -260,7 +248,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   subroutine load_pixels(this, file_name)
+   impure subroutine load_pixels(this, file_name)
       class(pixel), intent(inout) :: this
       character(*), intent(in) :: file_name
       integer :: i, nunit
@@ -279,7 +267,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   subroutine compress_pixels(this, rank, method)
+   pure subroutine compress_pixels(this, rank, method)
       class(pixel), intent(inout)            :: this
       integer,      intent(in)               :: rank
       character(*), intent(in), optional     :: method
@@ -294,7 +282,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   subroutine save_pixels(this, file_name)
+   impure subroutine save_pixels(this, file_name)
       class(pixel), intent(inout) :: this
       character(*), intent(in) :: file_name
       integer :: i, nunit
@@ -311,7 +299,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   elemental subroutine deallocate_pixel(this)
+   elemental pure subroutine deallocate_pixel(this)
       class(pixel), intent(inout) :: this
       if (allocated(this%pixels)) deallocate(this%pixels)
       if (allocated(this%pixels_app)) deallocate(this%pixels_app)
@@ -321,7 +309,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   elemental subroutine deallocate_tsvd(this)
+   elemental pure subroutine deallocate_tsvd(this)
       class(tsvd), intent(inout) :: this
       if (allocated(this%matrix)) deallocate(this%matrix)
       if (allocated(this%matrix_app)) deallocate(this%matrix_app)

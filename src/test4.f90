@@ -1,7 +1,7 @@
 program test4
 
    use kinds
-   use forsvd, only : tsvd
+   use forsvd, only: tsvd
 
    implicit none
 
