@@ -168,11 +168,12 @@ contains
       m = size(A, 1)
       n = size(A, 2)
 
+      allocate(iwork(n * 8)) ! Adjust the size as needed
+
       ! Calculate the optimal size of the work array
       call dgesdd('S', m, n, A, m, S, U, m, VT, n, work1, -1, iwork, info)
       lwork = nint(work1(1))
       allocate(work(lwork))
-      allocate(iwork(n * 8)) ! Adjust the size as needed
 
       call dgesdd('S', m, n, A, m, S, U, m, VT, n, work, lwork, iwork, info)
 
