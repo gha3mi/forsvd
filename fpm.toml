@@ -21,6 +21,10 @@ source-form       = "free"
 
 [dependencies]
 kinds      = {git="https://github.com/gha3mi/kinds.git"}
+fortime    = {git="https://github.com/gha3mi/fortime.git"}
+
+[preprocess]
+[preprocess.cpp]
 
 [[test]]
 name       = "test1"
@@ -46,5 +50,3 @@ main       = "test4.f90"
 name       = "benchmark"
 source-dir = "test"
 main       = "benchmark.f90"
-[test.dependencies]
-fortime    = {git="https://github.com/gha3mi/fortime.git"}
